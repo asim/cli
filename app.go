@@ -121,6 +121,9 @@ func (a *App) Run(arguments []string) (err error) {
 		}
 	}
 
+	a.appendFlag(TestShortFlag)
+	a.appendFlag(TestVerboseFlag)
+
 	//append version/help flags
 	if a.EnableBashCompletion {
 		a.appendFlag(BashCompletionFlag)
