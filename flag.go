@@ -29,6 +29,16 @@ var HelpFlag = BoolFlag{
 	Usage: "show help",
 }
 
+var TestShortFlag = BoolFlag{
+	Name:  "test.short",
+	Usage: "support golang test with short report",
+}
+
+var TestVerboseFlag = BoolFlag{
+	Name:  "test.v",
+	Usage: "support golang test with verbose report",
+}
+
 // Flag is a common interface related to parsing flags in cli.
 // For more advanced flag parsing techniques, it is recommended that
 // this interface be implemented.
