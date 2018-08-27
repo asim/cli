@@ -14,6 +14,11 @@ type MapInputSource struct {
 	valueMap map[string]interface{}
 }
 
+// NewMapInputSource creates MapInputSource instance
+func NewMapInputSource(value map[string]interface{}) *MapInputSource {
+	return &MapInputSource{valueMap: value}
+}
+
 // Int returns an int from the map if it exists otherwise returns 0
 func (fsm *MapInputSource) Int(name string) (int, error) {
 	otherGenericValue, exists := fsm.valueMap[name]
