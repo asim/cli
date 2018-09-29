@@ -1,6 +1,7 @@
 package cli
 
 import (
+	"flag"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -133,6 +134,9 @@ func (a *App) Run(arguments []string) (err error) {
 	// parse flags
 	set := flagSet(a.Name, a.Flags)
 	set.SetOutput(ioutil.Discard)
+	flag.VisitAll(func(ff *flag.Flag) {
+		set.Var(ff.Value, ff.Name, ff.Usage)
+	})
 	err = set.Parse(arguments[1:])
 	nerr := normalizeFlags(a.Flags, set)
 	context := NewContext(a, set, nil)
